@@ -77,14 +77,14 @@
         />
 
     <SeekBar
-        android:id="@+id/RSeekBar2"
+        android:id="@+id/Transparency"
         android:layout_width="271dp"
         android:layout_height="37dp"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:layout_marginEnd="15dp"
         android:layout_marginBottom="99dp"
-        android:max="255" />
+        android:max="11" />
 
     <SeekBar
         android:id="@+id/GSeekBar"
