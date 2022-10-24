@@ -2,6 +2,7 @@ package com.example.zadaniezdjeciejava;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.SeekBar;
@@ -24,17 +25,18 @@ public class MainActivity extends AppCompatActivity {
         SeekBar bSeekBar = findViewById(R.id.BSeekBar);
         ImageView zdj = findViewById(R.id.picture);
         SeekBar Transparency = findViewById(R.id.Transparency);
+        TextView text = findViewById(R.id.RGB);
 
         TextView rValue = findViewById(R.id.RValue);
         TextView gValue = findViewById(R.id.GValue);
         TextView bValue = findViewById(R.id.BValue);
+        zdj.setBackgroundResource(R.drawable._000200094514);
 
         Transparency.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
                 // obliczanie przezroczystosci
-                int x = i/10;
-                zdj.setImageAlpha(x);
+                zdj.setImageAlpha(i);
             }
 
             @Override
@@ -52,6 +54,9 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
                 rValue.setText(Integer.toString(i));
+                int x = i;
+                RValueInt[0] = x;
+                ZmianaKoloru(RValueInt[0], GValueInt[0], BValueInt[0]);
             }
 
             @Override
@@ -69,6 +74,9 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
                 gValue.setText(Integer.toString(i));
+                int x = i;
+                GValueInt[0] = x;
+                ZmianaKoloru(RValueInt[0], GValueInt[0], BValueInt[0]);
             }
 
             @Override
@@ -86,6 +94,9 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
                 bValue.setText(Integer.toString(i));
+                int x = i;
+                BValueInt[0] = x;
+                ZmianaKoloru(RValueInt[0], GValueInt[0], BValueInt[0]);
             }
 
             @Override
@@ -98,8 +109,12 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+
+
+    }
+    public void ZmianaKoloru(int RValueInt, int GValueInt, int BValueInt) {
+        TextView text = findViewById(R.id.RGB);
+        text.setBackgroundColor(Color.rgb(RValueInt, GValueInt, BValueInt));
     }
 
-    private void ZmianaKoloru() {
-    }
 }
